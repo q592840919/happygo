@@ -1,0 +1,93 @@
+<style lang="less">
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/index',
+      'pages/card',
+      'pages/home'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      color: "#8a8a8a",
+      selectedColor: "#ef3943",
+      backgroundColor: "#FFFFFF",
+      list: [
+        {
+          pagePath: 'pages/index',
+          text: '首页',
+          selectedIconPath: './images/tabbars/main-check.png',
+          iconPath: './images/tabbars/main.png'
+        }, {
+          pagePath: 'pages/card',
+          text: '卡券',
+          selectedIconPath: './images/tabbars/card-check.png',
+          iconPath: './images/tabbars/card.png'
+        }, {
+          pagePath: 'pages/home',
+          text: '我的',
+          selectedIconPath: './images/tabbars/home-check.png',
+          iconPath: './images/tabbars/home.png'
+        }
+      ]
+    }
+  }
+
+  globalData = {
+    userInfo: null
+  }
+
+  constructor () {
+    super()
+    this.use('requestfix')
+  }
+
+  onLaunch() {
+    this.testAsync()
+  }
+
+  sleep (s) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('promise resolved')
+      }, s * 1000)
+    })
+  }
+
+  async testAsync () {
+    const data = await this.sleep(3)
+    console.log(data)
+  }
+
+  // getUserInfo(cb) {
+  //   const that = this
+  //   if (this.globalData.userInfo) {
+  //     return this.globalData.userInfo
+  //   }
+  //   wepy.getUserInfo({
+  //     success (res) {
+  //       that.globalData.userInfo = res.userInfo
+  //       cb && cb(res.userInfo)
+  //     }
+  //   })
+  // }
+}
+</script>
