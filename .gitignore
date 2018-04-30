@@ -25,6 +25,7 @@
 .deployables
 .make.state
 .nse_depinfo
+.wepycache
 .svn
 CVS.adm
 RCS
@@ -43,6 +44,7 @@ typings
 tsd.json
 tsconfig.json
 jsconfig.json
+package-lock.json
 
 nohup.out
 

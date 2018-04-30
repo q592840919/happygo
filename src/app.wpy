@@ -91,3 +91,7 @@ export default class extends wepy.app {
   // }
 }
 </script>
+
+<style lang="less">
+@import "./styles/weui/weui.less";
+</style>

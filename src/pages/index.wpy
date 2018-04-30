@@ -24,9 +24,9 @@
 <script>
   import wepy from 'wepy'
   import Searchbar from '../components/searchbar' // alias example
+  import testMixin from '../mixins/test'
 
   export default class Index extends wepy.page {
-
     mixins = [testMixin]
 
     data = {
@@ -158,13 +158,13 @@
 
       //   self.$apply()
       // })
-      wepy.request({
-            url: 'https://www.madcoder.cn/tests/sleep.php?time=1&t=css&c=' + map[i] + '&i=' + i,
-            success: function (d) {
-              self.netrst += d.data + '.'
-              self.$apply()
-            }
-          })
+      // wepy.request({
+      //       url: 'https://www.madcoder.cn/tests/sleep.php?time=1&t=css&c=' + map[i] + '&i=' + i,
+      //       success: function (d) {
+      //         self.netrst += d.data + '.'
+      //         self.$apply()
+      //       }
+      //     })
     }
 
     config = {
