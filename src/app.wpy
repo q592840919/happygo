@@ -94,4 +94,5 @@ export default class extends wepy.app {
 
 <style lang="less">
 @import "./styles/weui/weui.less";
+@import "./styles/custom/custom.less";
 </style>

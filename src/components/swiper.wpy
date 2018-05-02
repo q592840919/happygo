@@ -1,0 +1,38 @@
+<style>
+
+</style>
+<template>
+    <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{list}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item.image}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+      </block>
+  </swiper>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class Swiper extends wepy.page {
+  props = {
+    list: {
+      type: Object,
+      default: []
+    }
+  }
+  data = {
+    indicatorDots: false,
+    autoplay: true,
+    interval: 5000,
+    duration: 500
+  };
+
+  computed = {
+    }
+
+    methods = {
+    }
+}
+</script>
