@@ -11,121 +11,69 @@
     border-radius: 50%;
   }
 
+  .component {
+      width: 100%;
+  }
+  .category{
+    position:relative;
+    width:100%;
+    font-size:14px;
+    background:#fff;
+  }
+  page, .body{
+      font-family: '\5FAE\8F6F\96C5\9ED1', arial;
+  }
   .userinfo-nickname {
     color: #aaa;
   }
 </style>
 <template>
   <view class="container">
-    <searchbar ></searchbar>
-    <swiper :list.sync="swiperList"></swiper>
+    <view class="component">
+      <searchbar />
+    </view>
+    <view class="component">
+      <swiper />
+    </view>
+    <view class="component category">
+      <category />
+    </view>
+    <!--<recommend :list:sync="pageOptions.recommends"></recommend>
+    <bursting :list:sync="pageOptions.burstings"></bursting>-->
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
+  import testMixin from '../mixins/test'
   import Searchbar from '../components/searchbar'
   import Swiper from '../components/swiper' // alias example
-  import testMixin from '../mixins/test'
+  import Category from '../components/category' // alias example
+  import Recommend from '../components/recommend' // alias example
+  import Bursting from '../components/bursting' // alias example
 
   export default class Index extends wepy.page {
     mixins = [testMixin]
 
     data = {
-      swiperList: [
-        {
-          image: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
-        },
-        {
-          image: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-        },
-        {
-          image: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-        }
-      ]
     }
 
     computed = {
-      now () {
-        return +new Date()
-      }
+
     }
 
     methods = {
-      plus () {
-        this.mynum++
-      },
-      toast () {
-        let promise = this.$invoke('toast', 'show', {
-          title: '自定义标题',
-          img: 'https://raw.githubusercontent.com/kiinlam/wetoast/master/images/star.png'
-        })
 
-        promise.then((d) => {
-          console.log('toast done')
-        })
-      },
-      tap () {
-        console.log('do noting from ' + this.$name)
-      },
-      communicate () {
-        console.log(this.$name + ' tap')
-
-        this.$invoke('counter2', 'minus', 45, 6)
-        this.$invoke('counter1', 'plus', 45, 6)
-
-        this.$broadcast('index-broadcast', 1, 3, 4)
-      },
-      request () {
-        let self = this
-        let i = 10
-        let map = ['MA==', 'MQo=', 'Mg==', 'Mw==', 'NA==', 'NQ==', 'Ng==', 'Nw==', 'OA==', 'OQ==']
-        while (i--) {
-          wepy.request({
-            url: 'https://www.madcoder.cn/tests/sleep.php?time=1&t=css&c=' + map[i] + '&i=' + i,
-            success: function (d) {
-              self.netrst += d.data + '.'
-              self.$apply()
-            }
-          })
-        }
-      },
-      counterEmit (...args) {
-        let $event = args[args.length - 1]
-        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
-      }
     }
 
-    events = {
-      'index-emit': (...args) => {
-        let $event = args[args.length - 1]
-        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
-      }
+    initPageData() {
+      // 处理轮播图
     }
 
+    onReady() {
+      this.initPageData()
+    }
     onLoad() {
-      // let self = this
-      // this.$parent.getUserInfo(function (userInfo) {
-      //   if (userInfo) {
-      //     self.userInfo = userInfo
-      //   }
-      //   self.normalTitle = '标题已被修改'
-
-      //   self.setTimeoutTitle = '标题三秒后会被修改'
-      //   setTimeout(() => {
-      //     self.setTimeoutTitle = '到三秒了'
-      //     self.$apply()
-      //   }, 3000)
-
-      //   self.$apply()
-      // })
-      // wepy.request({
-      //       url: 'https://www.madcoder.cn/tests/sleep.php?time=1&t=css&c=' + map[i] + '&i=' + i,
-      //       success: function (d) {
-      //         self.netrst += d.data + '.'
-      //         self.$apply()
-      //       }
-      //     })
     }
 
     config = {
@@ -135,7 +83,10 @@
     }
     components = {
       searchbar: Searchbar,
-      swiper: Swiper
+      swiper: Swiper,
+      category: Category,
+      recommend: Recommend,
+      bursting: Bursting
     }
   }
 </script>
