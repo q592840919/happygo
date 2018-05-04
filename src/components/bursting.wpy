@@ -88,7 +88,7 @@ export default class Bursting extends wepy.page {
       },{
         image: '/images/swipers/milk.png',
         title: '牛奶',
-        price: '立享五折',
+        price: '.立享五折',
         during: '5月10~5月20',
         collection: false,
         url: ""
