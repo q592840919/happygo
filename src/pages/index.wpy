@@ -4,13 +4,11 @@
     flex-direction: column;
     align-items: center;
   }
-
   .userinfo-avatar {
     width: 80rpx;
     height: 80rpx;
     border-radius: 50%;
   }
-
   .component {
       width: 100%;
   }
@@ -20,11 +18,12 @@
     font-size:14px;
     background:#fff;
   }
+  .recommend{
+    white-space: nowrap;
+    overflow-x:auto;
+  }
   page, .body{
       font-family: '\5FAE\8F6F\96C5\9ED1', arial;
-  }
-  .userinfo-nickname {
-    color: #aaa;
   }
 </style>
 <template>
@@ -38,8 +37,14 @@
     <view class="component category">
       <category />
     </view>
-    <!--<recommend :list:sync="pageOptions.recommends"></recommend>
-    <bursting :list:sync="pageOptions.burstings"></bursting>-->
+    <view>商铺推荐</view>
+    <view class="component recommend">
+      <recommend />
+    </view>
+    <view>限时爆款</view>
+    <view class="component bursting">
+      <bursting />
+    </view>
   </view>
 </template>
 

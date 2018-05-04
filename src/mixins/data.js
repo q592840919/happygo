@@ -22,7 +22,7 @@
 //     {
 //       image: '/images/swipers/milk.png',
 //       title: '牛奶',
-//       info: '第二件半价||立享五折||买一送一||20元3包||满60送30',
+//       price: '第二件半价||立享五折||买一送一||20元3包||满60送30',
 //       during: '5月10~5月20',
 //       collection: false
 //     }

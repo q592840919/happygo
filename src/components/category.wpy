@@ -36,11 +36,9 @@ import wepy from 'wepy';
 
 export default class Category extends wepy.page {
   props = {
-    list: {
-      type: Object,
-      default: []
-    }
+
   }
+
   data = {
     list: [
       {

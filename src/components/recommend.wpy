@@ -1,23 +1,31 @@
 <style type="less">
-.swiper{
-  width: 100%;
+.recommend-item{
+  width:300rpx;
+  float:left;
+  text-align:center;
+  overflow:hidden;
+  border:1px solid #efefef;
+  border-radius:5px;
+  margin-right:10rpx;
 }
-
-.slide-image{
-  width:100%;
-  height:100%;
+.recommend-icon{
+  width:240rpx;
+  height:240rpx;
+}
+.recommend-tab{
+  width: 1500rpx;
 }
 </style>
 <template>
-    <view>商铺推荐</view>
-    <swiper class="swiper" indicator-dots="{{indicatorDots}}"
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <view class="recommend-tab">
       <block wx:for="{{list}}" wx:key="index">
-        <swiper-item>
-          <image src="{{item.image}}" class="slide-image" width="355" height="150"/>
-        </swiper-item>
+        <navigator url="{{item.url}}" class="recommend-item" >
+          <view class="recommend-icon-wrapper">
+            <image src="{{item.image}}" class="recommend-icon" mode="aspectFit"/>
+          </view>
+        </navigator>
       </block>
-  </swiper>
+    </view>
 </template>
 
 <script>
@@ -25,16 +33,29 @@ import wepy from 'wepy';
 
 export default class Recommend extends wepy.page {
   props = {
-    list: {
-      type: Object,
-      default: []
-    }
+
   }
+
   data = {
-    indicatorDots: false,
-    autoplay: true,
-    interval: 5000,
-    duration: 500
+    list: [
+      {
+        image: '/images/swipers/milk.png',
+        url: '',
+        title: '牛奶'
+      },{
+        image: '/images/swipers/milk.png',
+        url: '',
+        title: '牛奶'
+      },{
+        image: '/images/swipers/milk.png',
+        url: '',
+        title: '牛奶'
+      },{
+        image: '/images/swipers/milk.png',
+        url: '',
+        title: '牛奶'
+      }
+    ]
   };
 
   computed = {
