@@ -25,30 +25,25 @@ import wepy from 'wepy';
 export default class Swiper extends wepy.page {
   props = {
     list: {
-      type: Object,
-      default: []
+      twoWay: true
     }
   }
+
   data = {
     indicatorDots: false,
     autoplay: true,
     interval: 5000,
-    duration: 500,
-    list:[
-      {
-        image: '/images/swipers/milk.png',
-        url: ''
-      },{
-        image: '/images/swipers/coffe.png',
-        url: ''
-      }
-    ]
-  };
+    duration: 500
+  }
 
   computed = {
   }
 
   methods = {
+  }
+
+  onLoad() {
+    console.log(this.list)
   }
 }
 </script>

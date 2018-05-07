@@ -29,21 +29,21 @@
 <template>
   <view class="container">
     <view class="component">
-      <searchbar />
+      <searchbar :list.sync="searchbars"/>
     </view>
     <view class="component">
-      <swiper />
+      <swiper :list.sync="swipers"/>
     </view>
     <view class="component category">
-      <category />
+      <category :list.sync="categorys"/>
     </view>
     <view>商铺推荐</view>
     <view class="component recommend">
-      <recommend />
+      <recommend :list.sync="recommends"/>
     </view>
     <view>限时爆款</view>
     <view class="component bursting">
-      <bursting />
+      <bursting :list.sync="burstings"/>
     </view>
   </view>
 </template>
@@ -51,16 +51,21 @@
 <script>
   import wepy from 'wepy'
   import testMixin from '../mixins/test'
+  import { pages } from '../mixins/data/pages'
   import Searchbar from '../components/searchbar'
-  import Swiper from '../components/swiper' // alias example
-  import Category from '../components/category' // alias example
-  import Recommend from '../components/recommend' // alias example
-  import Bursting from '../components/bursting' // alias example
+  import Swiper from '../components/swiper'
+  import Category from '../components/category'
+  import Recommend from '../components/recommend'
+  import Bursting from '../components/common/bursting'
 
   export default class Index extends wepy.page {
     mixins = [testMixin]
 
     data = {
+      swipers: [],
+      categorys: [],
+      recommends: [],
+      burstings: []
     }
 
     computed = {
@@ -72,7 +77,10 @@
     }
 
     initPageData() {
-      // 处理轮播图
+      let i;
+      for(i in pages){
+        this[i] = pages[i];
+      }
     }
 
     onReady() {

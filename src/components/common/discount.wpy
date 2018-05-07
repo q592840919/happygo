@@ -1,0 +1,96 @@
+<style type="less">
+.bursting-tab{
+  .bursting-item{
+    .bursting-image-wrapper{
+      padding: 30rpx;
+      border-bottom: 1px solid #EFEFEF;
+      .info-image-wrapper{
+        width: 150rpx;
+        height: 150rpx;
+        .info-image{
+            width: 150rpx;
+            height: 150rpx;
+          }
+      }
+      .info-detail{
+        margin-left: 50px;
+        .info-title{
+          font-size: 20rpx;
+        }
+        .info-price{
+          font-size: 20rpx;
+        }
+        .info-during{
+          font-size: 20rpx;
+          }
+      }
+      .info-collection{
+        width: 30px;
+        height: 30px;
+        margin-left: 100px;
+        .collection-icon{
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .view-info{
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+</style>
+<template>
+    <view class="bursting-tab">
+      <block wx:for="{{list}}" wx:key="index">
+        <navigator url="{{item.url}}" class="bursting-item" >
+          <view class="bursting-image-wrapper">
+            <view class="info-image-wrapper view-info">
+              <image src="{{item.image}}" class="info-image" mode="aspectFit"/>
+            </view>
+            <view class="info-detail view-info">
+              <view class="info-title">
+                  {{item.title}}
+              </view>
+              <view class="info-price">
+                  {{item.price}}
+              </view>
+              <view class="info-during">
+                  {{item.during}}
+              </view>
+            </view>
+            <view class="info-collection  view-info">
+              <image src="{{item.collection?'/images/home/islove.png':'/images/home/nolove.png'}}" class="collection-icon" mode="aspectFit"/>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class Discount extends wepy.page {
+  props = {
+    list: {
+      twoWay: true
+    }
+  }
+
+  data = {
+
+  }
+
+  onload(){
+
+console.log(this.list);
+  }
+  computed = {
+  }
+
+  methods = {
+  }
+}
+</script>

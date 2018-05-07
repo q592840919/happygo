@@ -36,30 +36,14 @@ import wepy from 'wepy';
 
 export default class Category extends wepy.page {
   props = {
-
+    list: {
+      twoWay: true
+    }
   }
 
   data = {
-    list: [
-      {
-        image: '/images/swipers/milk.png',
-        url: '',
-        title: '牛奶'
-      },{
-        image: '/images/swipers/milk.png',
-        url: '',
-        title: '牛奶'
-      },{
-        image: '/images/swipers/milk.png',
-        url: '',
-        title: '牛奶'
-      },{
-        image: '/images/swipers/milk.png',
-        url: '',
-        title: '牛奶'
-      }
-    ]
-  };
+
+  }
 
   computed = {
   }
