@@ -18,6 +18,13 @@
     font-size:14px;
     background:#fff;
   }
+  .comp-title{
+    font-size:12px;
+    color:#BBBBBB;
+    margin:70rpx 40rpx 20rpx;
+    width:70%;
+    text-align:center;
+  }
   .recommend{
     white-space: nowrap;
     overflow-x:auto;
@@ -37,11 +44,11 @@
     <view class="component category">
       <category :list.sync="categorys"/>
     </view>
-    <view>商铺推荐</view>
+    <view class="comp-title">商铺推荐</view>
     <view class="component recommend">
       <recommend :list.sync="recommends"/>
     </view>
-    <view>限时爆款</view>
+    <view class="comp-title">限时爆款</view>
     <view class="component bursting">
       <bursting :list.sync="burstings"/>
     </view>

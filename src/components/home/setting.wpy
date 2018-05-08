@@ -1,0 +1,45 @@
+<style type="less">
+.setting-tab{
+  margin-top:200rpx;
+  font-size:30rpx;
+  color:#666666;
+}
+</style>
+<template>
+    <view class="setting-tab">
+      <block wx:for="{{list}}" wx:key="index">
+        <navigator url="{{item.url}}" class="weui-cell weui-cell_access" >
+          <view class="weui-cell__bd">
+              {{item.title}}
+          </view>
+          <view class="weui-weui-cell__ft weui-cell__ft_in-access">
+          </view>
+        </navigator>
+      </block>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class Setting extends wepy.page {
+  props = {
+    list: {
+      twoWay: true
+    }
+  }
+
+  data = {
+
+  }
+
+  onload(){
+
+  }
+  computed = {
+  }
+
+  methods = {
+  }
+}
+</script>

@@ -28,7 +28,7 @@
 </style>
 <template>
     <view class="component bursting">
-      <deductible :list.sync="deductibles"/>
+      <discountmain :list.sync="discounts"/>
     </view>
   </view>
 </template>
@@ -36,14 +36,14 @@
 <script>
   import wepy from 'wepy'
   import testMixin from '../mixins/test'
-  import { cards } from '../mixins/data/cards'
-  import Deductible from '../components/card/deductible'
+  import { collections } from '../mixins/data/collections'
+  import Discountmain from '../components/collection/discountmain'
 
-  export default class Card extends wepy.page {
+  export default class Collection extends wepy.page {
     mixins = [testMixin]
 
     data = {
-      deductibles: []
+      discounts: []
     }
 
     computed = {
@@ -56,8 +56,8 @@
 
     initPageData() {
       let i;
-      for(i in cards){
-        this[i] = cards[i];
+      for(i in collections){
+        this[i] = collections[i];
       }
     }
 
@@ -68,12 +68,12 @@
     }
 
     config = {
-      navigationBarTitleText: '首页',
+      navigationBarTitleText: '收藏',
       navigationBarTextStyle: '#FFFFFF',
       navigationBarBackgroundColor: '#FFFFFF'
     }
     components = {
-      deductible: Deductible
+      discountmain: Discountmain
     }
   }
 </script>

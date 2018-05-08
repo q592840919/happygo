@@ -18,6 +18,7 @@ export default class extends wepy.app {
     pages: [
       'pages/index',
       'pages/card',
+      'pages/collection',
       'pages/home'
     ],
     window: {
@@ -41,6 +42,11 @@ export default class extends wepy.app {
           text: '卡券',
           selectedIconPath: './images/tabbars/card-check.png',
           iconPath: './images/tabbars/card.png'
+        }, {
+          pagePath: 'pages/collection',
+          text: '收藏',
+          selectedIconPath: './images/tabbars/collection-check.png',
+          iconPath: './images/tabbars/collection.png'
         }, {
           pagePath: 'pages/home',
           text: '我的',
