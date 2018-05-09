@@ -25,6 +25,14 @@ const pages = {
       image: '/images/swipers/milk.png',
       url: '',
       title: '牛奶'
+    },{
+      image: '/images/swipers/milk.png',
+      url: '',
+      title: '牛奶'
+    },{
+      image: '/images/swipers/milk.png',
+      url: '',
+      title: '牛奶'
     }
   ],
   recommends: [
@@ -80,6 +88,21 @@ const pages = {
       title: '牛奶',
       price: '满60送30',
       during: '5月10~5月20',
+      collection: true,
+      url: ""
+    }
+  ],
+  shops: [
+    {
+      image: '/images/swipers/milk.png',
+      name: '华润',
+      during: '5月10~5月20',
+      collection: false,
+      url: ""
+    },{
+      image: '/images/swipers/milk.png',
+      name: 'KAM服装',
+      address: '苏果路198号',
       collection: true,
       url: ""
     }

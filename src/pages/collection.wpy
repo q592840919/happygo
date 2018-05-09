@@ -25,10 +25,37 @@
   page, .body{
       font-family: '\5FAE\8F6F\96C5\9ED1', arial;
   }
+  .weui-bar__item_on{
+    .weui-navbar__title{
+      color: #f64942;
+    }
+  }
+  .weui-navbar__slider{
+    width: 10em;
+    background-color: #f64942;
+  }
+  .weui-tab__panel{
+    padding-top: 128rpx;
+  }
 </style>
 <template>
-    <view class="component bursting">
-      <discountmain :list.sync="discounts"/>
+  <view class="weui-tab">
+    <view class="weui-navbar">
+        <view wx:for="{{tabs}}" wx:key="*this" id="{{index}}"
+        class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" @tap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+        </view>
+        <view class="weui-navbar__slider"
+        style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);">
+        </view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="component" hidden="{{activeIndex != 0}}">
+        <discountmain :list.sync="discounts"/>
+      </view>
+      <view class="component" hidden="{{activeIndex != 1}}">
+        <discountmain :list.sync="discounts"/>
+      </view>
     </view>
   </view>
 </template>
@@ -43,7 +70,11 @@
     mixins = [testMixin]
 
     data = {
-      discounts: []
+      discounts: [],
+      tabs: ['商品', '店铺'],
+      activeIndex: 0,
+      sliderOffset: 0,
+      sliderLeft: 0
     }
 
     computed = {
@@ -51,7 +82,10 @@
     }
 
     methods = {
-
+      tabClick (e) {
+        this.sliderOffset = e.currentTarget.offsetLeft;
+        this.activeIndex = e.currentTarget.id;
+      }
     }
 
     initPageData() {
@@ -64,7 +98,12 @@
     onReady() {
       this.initPageData()
     }
-    onLoad() {
+
+    async onLoad () {
+      let res = await wepy.getSystemInfo();
+
+      this.sliderLeft = (res.windowWidth / this.tabs.length - sliderWidth) / 2;
+      this.sliderOffset = res.windowWidth / this.tabs.length * this.activeIndex;
     }
 
     config = {
