@@ -43,7 +43,7 @@ export default class Swiper extends wepy.page {
   }
 
   onLoad() {
-    console.log(this.list)
+
   }
 }
 </script>

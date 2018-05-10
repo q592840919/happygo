@@ -11,8 +11,8 @@ const pages = {
   categorys: [
     {
       image: '/images/swipers/milk.png',
-      url: '',
-      title: '牛奶'
+      url: '/pages/main/shopcenter',
+      title: '牛奶1'
     },{
       image: '/images/swipers/milk.png',
       url: '',

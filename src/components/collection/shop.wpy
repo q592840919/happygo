@@ -1,0 +1,94 @@
+<style type="less">
+.shop-tab{
+  .shop-item{
+    .shop-image-wrapper{
+      padding:0 30rpx 20rpx;
+      border-bottom: 1px solid #EFEFEF;
+      margin:0 40rpx;
+      .info-image-wrapper{
+        width: 150rpx;
+        height: 150rpx;
+        .info-image{
+            width: 150rpx;
+            height: 150rpx;
+          }
+      }
+      .info-detail{
+        margin-left: 100rpx;
+        width:200rpx;
+        .info-title{
+          font-size: 20rpx;
+        }
+        .info-price{
+          font-size: 20rpx;
+        }
+        .info-during{
+          font-size: 20rpx;
+          }
+      }
+      .info-collection{
+        width: 60rpx;
+        height: 60rpx;
+        margin-left: 100rpx;
+        .collection-icon{
+          width: 60rpx;
+          height: 60rpx;
+        }
+      }
+      .view-info{
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+</style>
+<template>
+  <view class="shop-tab">
+    <block wx:for="{{list}}" wx:key="index">
+      <navigator url="{{item.url}}" class="shop-item" >
+        <view class="shop-image-wrapper">
+          <view class="info-image-wrapper view-info">
+            <image src="{{item.image}}" class="info-image" mode="aspectFit"/>
+          </view>
+          <view class="info-detail view-info">
+            <view class="info-title">
+                {{item.name}}
+            </view>
+            <view class="info-price">
+                {{item.adress}}
+            </view>
+          </view>
+          <view class="info-collection  view-info">
+            <image src="{{item.collection?'/images/home/islove.png':'/images/home/nolove.png'}}" class="collection-icon" mode="aspectFit"/>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class Shop extends wepy.page {
+  props = {
+    list: {
+      twoWay: true
+    }
+  }
+
+  data = {
+
+  }
+
+  onload(){
+
+  }
+  computed = {
+  }
+
+  methods = {
+  }
+}
+</script>

@@ -27,9 +27,8 @@
   }
 </style>
 <template>
-    <view class="component bursting">
-      <deductible :list.sync="deductibles"/>
-    </view>
+  <view class="component bursting">
+    <deductible :list.sync="deductibles"/>
   </view>
 </template>
 

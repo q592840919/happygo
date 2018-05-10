@@ -1,0 +1,141 @@
+<style type="less">
+.deductible-tab{
+  .deductible-title{
+    font-size:12px;
+    color:#BBBBBB;
+    border-bottom:1px solid #DCDCDC;
+    padding:0 60rpx 20rpx;
+    margin:70rpx 40rpx 30rpx;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  .deductible-item{
+    margin:0 40rpx;
+    .deductible-image-wrapper{
+      padding: 10rpx;
+      .info-image-wrapper{
+        width: 150rpx;
+        height: 150rpx;
+        display:inline-block;
+        vertical-align:middle;
+        border:1px solid #eeeeee;
+        .info-image{
+            width: 150rpx;
+            height: 150rpx;
+          }
+      }
+      .info-detail{
+        margin-left:50rpx;
+        display:inline-block;
+        vertical-align:middle;
+        .info-first{
+          view{
+            display: inline-block;
+            font-size: 30rpx;
+          }
+          .info-title{
+
+          }
+          .info-type{
+            margin-left: 20rpx;
+          }
+        }
+        .info-second{
+          view{
+            display: inline-block;
+            font-size: 20rpx;
+          }
+          .info-content{
+
+          }
+          .info-requirement{
+            margin-left: 20rpx;
+          }
+        }
+      }
+    }
+    .info-list{
+      width: 60rpx;
+      height: 60rpx;
+      display: inline-block;
+      margin-left: 50rpx;
+      vertical-align:middle;
+      .collection-icon{
+        width: 60rpx;
+        height: 60rpx;
+      }
+    }
+    .info-collection{
+      display: block;
+      padding: 30rpx;
+      border-bottom: 1px solid #EFEFEF;
+      margin-bottom: 30rpx;
+      font-size:23rpx;
+      text-align:center;
+    }
+  }
+}
+</style>
+<template>
+    <view class="deductible-tab">
+      <block wx:for="{{list}}" wx:key="index" >
+        <navigator url="{{item.url}}" class="deductible-item" >
+          <view class="deductible-image-wrapper">
+            <view class="info-image-wrapper view-info">
+              <image src="{{item.image}}" class="info-image" mode="aspectFit"/>
+            </view>
+            <view class="info-detail view-info">
+              <view class="info-first">
+                <view class="info-title">
+                    {{item.title}}
+                </view>
+                <view class="info-type">
+                    {{item.type}}
+                </view>
+              </view>
+              <view class="info-second">
+                <view class="info-content">
+                    {{item.content}}
+                </view>
+                <view class="info-requirement">
+                    {{item.requirement}}
+                </view>
+              </view>
+            </view>
+            <view class="info-list  view-info">
+              <image src="{{item.collection?'/images/home/islove.png':'/images/home/nolove.png'}}" class="collection-icon" mode="aspectFit"/>
+            </view>
+          </view>
+          <view class="info-collection view-info">
+            {{item.during}}
+          </view>
+        </navigator>
+      </block>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class DeductibleList extends wepy.page {
+  props = {
+    list: {
+      twoWay: true
+    }
+  }
+
+  data = {
+
+  }
+
+  onload(){
+
+  }
+  computed = {
+  }
+
+  methods = {
+  }
+}
+</script>

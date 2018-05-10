@@ -51,10 +51,10 @@
     </view>
     <view class="weui-tab__panel">
       <view class="component" hidden="{{activeIndex != 0}}">
-        <discountmain :list.sync="discounts"/>
+        <discountList :list.sync="shopCommoditys"/>
       </view>
       <view class="component" hidden="{{activeIndex != 1}}">
-        <shop :list.sync="shops"/>
+        <deductibleList :list.sync="shopCards"/>
       </view>
     </view>
   </view>
@@ -62,18 +62,16 @@
 
 <script>
   import wepy from 'wepy'
-  import testMixin from '../mixins/test'
-  import { collections } from '../mixins/data/collections'
-  import Discountmain from '../components/collection/discountmain'
-  import Shop from '../components/collection/shop'
+  import { shopLists } from '../../mixins/data/main/shopLists'
+  import DiscountList from '../../components/page/discountList'
+  import DeductibleList from '../../components/page/deductibleList'
 
-  export default class Collection extends wepy.page {
-    mixins = [testMixin]
+  export default class Shoplist extends wepy.page {
 
     data = {
-      discounts: [],
-      shops: [],
-      tabs: ['商品', '店铺'],
+      shopCommoditys: [],
+      shopCards: [],
+      tabs: ['优惠', '卡券'],
       activeIndex: 0,
       sliderOffset: 0,
       sliderLeft: 0
@@ -92,8 +90,8 @@
 
     initPageData() {
       let i;
-      for(i in collections){
-        this[i] = collections[i];
+      for(i in shopLists){
+        this[i] = shopLists[i];
       }
     }
 
@@ -114,8 +112,8 @@
       navigationBarBackgroundColor: '#FFFFFF'
     }
     components = {
-      discountmain: Discountmain,
-      shop: Shop
+      discountList: DiscountList,
+      deductibleList: DeductibleList
     }
   }
 </script>

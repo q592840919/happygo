@@ -1,0 +1,52 @@
+<style lang="less">
+</style>
+<template>
+  <view class="component bursting">
+    <shop :list.sync="shops"/>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import { shopcenters } from '../../mixins/data/main/shopcenters'
+  import Shop from '../../components/collection/shop'
+
+  export default class Shopcenter extends wepy.page {
+
+    data = {
+      shops: []
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+
+    }
+
+    initPageData() {
+      let i;
+      for(i in shopcenters){
+        this[i] = shopcenters[i];
+      }
+    }
+
+    onReady() {
+      this.initPageData()
+    }
+
+    onLoad () {
+
+    }
+
+    config = {
+      navigationBarTitleText: '商铺中心',
+      navigationBarTextStyle: '#FFFFFF',
+      navigationBarBackgroundColor: '#FFFFFF'
+    }
+    components = {
+      shop: Shop
+    }
+  }
+</script>

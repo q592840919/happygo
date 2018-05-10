@@ -62,14 +62,14 @@ const collections = {
     {
       image: '/images/swipers/milk.png',
       name: '华润',
-      during: '5月10~5月20',
       collection: false,
+      adress: "星海街",
       url: ""
     },{
       image: '/images/swipers/milk.png',
       name: 'KAM服装',
-      address: '苏果路198号',
       collection: true,
+      adress: "仁爱路",
       url: ""
     },
   ]
